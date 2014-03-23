@@ -16,7 +16,7 @@ def find_config(war_file=None):
         zf = zipfile.ZipFile(war_to_check, 'r')
         file_list = zf.namelist()
         if "WEB-INF/classes/external-config.groovy" in file_list:
-            raise SystemExit
+            return
         raise FileNotFoundException("The config file was not found.")
     raise FileNotFoundException("The war file could not be found, or was not a valid zipfile.")
 
