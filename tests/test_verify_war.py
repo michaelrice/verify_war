@@ -20,6 +20,9 @@ import verify_war
 
 class TestVerifyWar(unittest.TestCase):
 
+    def setUp(self):
+        self.filepath = os.path.dirname(os.path.realpath(__file__))
+
     def test_verify_war(self):
         self.assertRaises(verify_war.FileNotFoundException,
                           verify_war.find_config,
@@ -31,6 +34,8 @@ class TestVerifyWar(unittest.TestCase):
 
         self.assertRaises(verify_war.FileNotFoundException,
                           verify_war.find_config,
-                          war_file="./data/bad/bad.zip")
+                          war_file="{}/data/bad/bad.zip".format(
+                              self.filepath))
 
-        self.assertTrue(verify_war.find_config(war_file="./data/good/good.zip") is None)
+        self.assertTrue(verify_war.find_config(
+            war_file="{}/data/good/good.zip".format(self.filepath)) is None)
