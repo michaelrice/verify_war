@@ -8,8 +8,9 @@ http://opensource.org/licenses/MIT
 """
 __author__ = 'michael rice <michael@michaelrice.org>'
 
+import os
 import sys
-sys.path.append('../')
+sys.path.append(os.path.dirname(os.path.realpath(__file__))[:-6])
 if sys.version_info[:3] < (2, 7, 0):
     import unittest2 as unittest
 else:
@@ -18,8 +19,6 @@ import verify_war
 
 
 class TestVerifyWar(unittest.TestCase):
-    def setUp(self):
-        pass
 
     def test_verify_war(self):
         self.assertRaises(verify_war.FileNotFoundException,
