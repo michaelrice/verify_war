@@ -47,7 +47,7 @@ def find_config(war_file=None):
         if "WEB-INF/classes/external-config.groovy" in file_list:
             return
         raise FileNotFoundException("The config file was not found.")
-    msg = "{} is not a valid file on the file system.".format(war_file)
+    msg = "{0} is not a valid file on the file system.".format(war_file)
     raise FileNotFoundException(msg)
 
 

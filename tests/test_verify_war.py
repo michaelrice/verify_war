@@ -34,8 +34,8 @@ class TestVerifyWar(unittest.TestCase):
 
         self.assertRaises(verify_war.FileNotFoundException,
                           verify_war.find_config,
-                          war_file="{}/data/bad/bad.zip".format(
+                          war_file="{0}/data/bad/bad.zip".format(
                               self.filepath))
 
         self.assertTrue(verify_war.find_config(
-            war_file="{}/data/good/good.zip".format(self.filepath)) is None)
+            war_file="{0}/data/good/good.zip".format(self.filepath)) is None)
